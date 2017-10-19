@@ -1,5 +1,5 @@
 function startApp() {
-    //showView('viewHome'); //<= 
+    showView('viewHome'); //<= 
 	showHideMenuLinks();
     showHomeView();
 
