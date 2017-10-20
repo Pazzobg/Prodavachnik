@@ -2,7 +2,7 @@
 
 This is the first Project of the Teamwork Cousrse @SoftUni
 
-## With Contributors:
+## Contributors:
   - Stoyan Zlatev,
   - Evgeni Dimov,
   - Veselin Georgiev,
