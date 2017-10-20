@@ -12,8 +12,8 @@
             price: 100
         }
     ];
-    
-	let users = [
+
+    let users = [
         {
             _kmd: {
                 authtoken: "mock_token0"
@@ -92,7 +92,7 @@
             };
         }
     });
-	
+
     // Loading of adverts
     $.mockjax(function (requestSettings) {
         if (requestSettings.url === "https://mock.api.com/appdata/kid_rk/adverts" &&
@@ -108,5 +108,5 @@
                 }
             };
         }
-    });	
+    });
 })();
