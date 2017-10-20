@@ -7,7 +7,7 @@
                 creator: 0
             },
             title: "XBoss 1080",
-            description: "Modded gaming console",			
+            description: "Modded gaming console",
             publisher: "Pesho",
             datePublished: "2017-06-04",
             price: 100,
@@ -41,6 +41,7 @@
             password: "m"
         }
     ];
+
 
     // User login
     $.mockjax(function (requestSettings) {
@@ -94,8 +95,8 @@
             };
         }
     });
-	
-	// Get user info
+
+    // Get user info
     $.mockjax(function (requestSettings) {
         if (requestSettings.url.match(/https:\/\/mock\.api\.com\/user\/kid_rk\/(.+)/)) {
             let userId = requestSettings.url.match(/https:\/\/mock\.api\.com\/user\/kid_rk\/(.+)/)[1];
@@ -129,14 +130,8 @@
             };
         }
     });
-	
-<<<<<<< HEAD
-    // Load single advert
-    $.mockjax(function (requestSettings) {
-        if (requestSettings.url.match(/https:\/\/mock\.api\.com\/appdata\/kid_rk\/adverts\/(.+)/) &&
-            requestSettings.method === "GET") {
-=======
-	    // Create advert
+
+    // Create advert
     $.mockjax(function (requestSettings) {
         if (requestSettings.url === "https://mock.api.com/appdata/kid_rk/adverts" &&
             requestSettings.method === "POST") {
@@ -156,6 +151,7 @@
                                 creator: creator
                             },
                             title: data.title,
+                            description: data.description,
                             publisher: data.publisher,
                             datePublished: data.datePublished,
                             price: data.price
@@ -190,31 +186,16 @@
         }
     });
 
-
-    // Edit advert
+    // Load single advert
     $.mockjax(function (requestSettings) {
         if (requestSettings.url.match(/https:\/\/mock\.api\.com\/appdata\/kid_rk\/adverts\/(.+)/) &&
-            requestSettings.method === "PUT") {
->>>>>>> remotes/origin/master
+            requestSettings.method === "GET") {
             let advertId = Number(requestSettings.url.match(/https:\/\/mock\.api\.com\/appdata\/kid_rk\/adverts\/(.+)/)[1]);
             return {
                 response: function (origSettings) {
                     if (requestSettings.headers["Authorization"].includes("Kinvey mock_token")) {
                         let advert = adverts.filter(a => a._id === advertId);
-<<<<<<< HEAD
                         this.responseText = advert.shift();
-=======
-                        let data = requestSettings.data;
-                        if (advert.length > 0) {
-                            advert = advert[0];
-                            advert.title = data.title;
-                            advert.publisher = data.publisher;
-                            advert.datePublished = data.datePublished;
-                            advert.price = data.price;
-                            this.responseText = advert;
-                        }
-                        this.responseText = {};
->>>>>>> remotes/origin/master
                     } else {
                         this.status = 403;
                         this.responseText = "You are not authorized";
@@ -222,10 +203,35 @@
                 }
             };
         }
-<<<<<<< HEAD
-    });	
-=======
     });
-	
->>>>>>> remotes/origin/master
+
+    // Edit advert
+    $.mockjax(function (requestSettings) {
+        if (requestSettings.url.match(/https:\/\/mock\.api\.com\/appdata\/kid_rk\/adverts\/(.+)/) &&
+            requestSettings.method === "PUT") {
+            let advertId = Number(requestSettings.url.match(/https:\/\/mock\.api\.com\/appdata\/kid_rk\/adverts\/(.+)/)[1]);
+            return {
+                response: function (origSettings) {
+                    if (requestSettings.headers["Authorization"].includes("Kinvey mock_token")) {
+                        let advert = adverts.filter(a => a._id === advertId);
+                        let data = requestSettings.data;
+                        if (advert.length > 0) {
+                            advert = advert[0];
+                            advert.title = data.title;
+                            advert.description = data.description;
+                            advert.publisher = data.publisher;
+                            advert.datePublished = data.datePublished;
+                            advert.price = data.price;
+							advert.image = data.image;
+                            this.responseText = advert;
+                        }
+                        this.responseText = {};
+                    } else {
+                        this.status = 403;
+                        this.responseText = "You are not authorized";
+                    }
+                }
+            };
+        }
+    });
 })();
