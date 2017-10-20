@@ -1,6 +1,9 @@
 # Prodavachnik
-The first Team Project in the Team-Work Course by SoftUni - 11. 10. 2017                                                                     # With Contributors:
-  - Пламен Хараламбиев,
-  - Евгени Димов,
-  - Веселин Георгиев,
-  - and me Стоян Златев
+
+This is the first Project of the Teamwork Cousrse @SoftUni
+
+## With Contributors:
+  - Stoyan Zlatev,
+  - Evgeni Dimov,
+  - Veselin Georgiev,
+  - and me - Plamen Stoyanov
