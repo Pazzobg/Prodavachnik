@@ -1,5 +1,4 @@
 function startApp() {
-    showView('viewHome'); //<= 
 	showHideMenuLinks();
     showHomeView();
 
@@ -18,7 +17,6 @@ function startApp() {
     const kinveyAppKey = "kid_rk";
     const kinveyAppSecret = "736804a668";
 
-	
     function showView(viewName) {
         // Hide all views and show the selected view only
         $('main > section').hide();
@@ -125,7 +123,7 @@ function startApp() {
         showHomeView();
     }
 	
-	    // advertisement/all
+	// advertisement/all
     function listAdverts() {
         $('#ads').empty();
         showView('viewAds');
@@ -166,5 +164,4 @@ function startApp() {
             }
         }
     }
-
 }
